@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- General -->
+    <string name="sp_ad_block">SP_AD_BLOCK_9</string>
+    <string name="sp_cookies">SP_COOKIES_9</string>
+    <string name="sp_images">SP_IMAGES_9</string>
+    <string name="sp_javascript">SP_JAVASCRIPT_9</string>
+    <string name="sp_force_scale">SP_FORCE_SCALE_9</string>
+    <string name="sp_popup">SP_POPUP_9</string>
+    <string name="sp_crash">SP_CRASH_9</string>
+    <string name="sp_resume">SP_RESUME_9</string>
+    <string name="sp_location">SP_LOCATION_9</string>
+    <string name="sp_omnibox_control">SP_OMNIBOX_CONTROL_9</string>
+    <string name="sp_hidden_status">SP_HIDDEN_STATUS_9</string>
+    <string name="sp_search_engine">SP_SEARCH_ENGINE_9</string>
+    <string name="sp_search_engine_custom">SP_SEARCH_ENGINE_CUSTOM_9</string>
+    <string name="sp_user_agent">SP_USER_AGENT_9</string>
+    <string name="sp_user_agent_desk_mode">SP_USER_AGENT_DESK_MODE_9</string>
+    <string name="sp_user_agent_custom">SP_USER_AGENT_CUSTOM_9</string>
+    <string name="sp_file_download_dir">SP_FILE_DOWNLOAD_DIR_9</string>
+    <string name="sp_no_his_mode">SP_NO_HIS_MODE_9</string>
+    <string name="sp_night">SP_NIGHT_9</string>
+
+    <!-- Clear -->
+    <string name="sp_clear_quit">SP_CLEAR_QUIT_9</string>
+    <string name="sp_clear_bookmarks">SP_CLEAR_BOOKMARKS_9</string>
+    <string name="sp_clear_passwords">SP_CLEAR_PASSWORDS_9</string>
+
+    <string name="sp_clear_cache">SP_CLEAR_CACHE_9</string>
+    <string name="sp_clear_form">SP_CLEAR_FORM_9</string>
+    <string name="sp_clear_history">SP_CLEAR_HISTORY_9</string>
+    <string name="sp_clear_web">SP_CLEAR_WEB_9</string>
+    <string name="sp_clear_cookie">SP_CLEAR_COOKIE_9</string>
+
+    <string name="sp_clear_cache_e">SP_CLEAR_CACHE_E_9</string>
+    <string name="sp_clear_form_e">SP_CLEAR_FORM_E_9</string>
+    <string name="sp_clear_history_e">SP_CLEAR_HISTORY_E_9</string>
+    <string name="sp_clear_web_e">SP_CLEAR_WEB_E_9</string>
+    <string name="sp_clear_cookie_e">SP_CLEAR_COOKIE_E_9</string>
+
+
+    <string name="sp_qquick">SP_QQICK_9</string>
+    <string name="sp_volume_scroll">SP_VOLUME_SCROLL_9</string>
+    <string name="sp_fling_page">SP_FLING_PAGE_9</string>
+
+
+    <string name="sp_home">SP_HOME_9</string>
+    <string name="sp_home_custom_background">SP_HOME_CUSTOM_BACKGROUND_9</string>
+    <string name="sp_home_logo_show">SP_HOME_LOGO_SHOW_9</string>
+    <string name="sp_home_logo_path">SP_HOME_LOGO_PATH_9</string>
+
+</resources>

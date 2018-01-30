@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="always" name="referrer">
+    <meta name="theme-color" content="#2932e1">
+
+    <link rel="dns-prefetch" href="//s1.bdstatic.com"/>
+    <link rel="dns-prefetch" href="//t1.baidu.com"/>
+    <link rel="dns-prefetch" href="//t2.baidu.com"/>
+    <link rel="dns-prefetch" href="//t3.baidu.com"/>
+    <link rel="dns-prefetch" href="//t10.baidu.com"/>
+    <link rel="dns-prefetch" href="//t11.baidu.com"/>
+    <link rel="dns-prefetch" href="//t12.baidu.com"/>
+    <link rel="dns-prefetch" href="//b1.bdstatic.com"/>
+
+    <title>主页</title>
+
+    <style>
+    .box {
+        position:absolute;
+        top:0px;
+        bottom:0px;
+        left:0px;
+        right:0px;
+        display: -webkit-flex;
+        display: flex;
+        justify-content:center;
+        flex-direction:column
+    }
+    .box-h {
+        display: -webkit-flex;
+        display: flex;
+        justify-content:center;
+        flex-direction:row;
+    }
+    input {
+        border:1px solid black;
+        width:70%;
+        padding:12px;
+        padding-top:14px;
+        padding-bottom:10px;
+        border-radius:50px;
+        outline:none;
+    }
+</style>
+    <script type="text/javascript">
+        function search(){
+            var code = event.keyCode;
+            if(code == 13){
+                prompt("jjs://SEARCH#" + document.getElementById('search-box').value)
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class='box'>
+    <div class='box-h'>
+        <input id="search-box" type="text" onkeyup='search()' placeholder="请输入检索关键字">
+    </div>
+</div>
+</body>
+</html>

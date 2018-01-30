@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Glue</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="address_hint">搜索关键字</string>
+    <string name="permission_request_title">Permission is needed</string>
+    <string name="app_ok">确定</string>
+    <string name="app_cancel">取消</string>
+    <string name="permission_request">为保证应用正常运行请允许获取相关权限</string>
+
+    <!-- AndroidAgo -->
+    <string name="android_ago_just_now">刚刚</string>
+    <string name="list_empty">当前列表为空</string>
+
+</resources>

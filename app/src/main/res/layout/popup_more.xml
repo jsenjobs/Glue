@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/more_bt_marks"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_width_small"
+                android:layout_height="@dimen/func_icon_width_small"
+                android:src="@mipmap/more_add_tag"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:text="书签"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/more_bt_his"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_width_small"
+                android:layout_height="@dimen/func_icon_width_small"
+                android:src="@mipmap/more_his"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:text="历史"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/more_bt_download"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_width_small"
+                android:layout_height="@dimen/func_icon_width_small"
+                android:src="@mipmap/more_download"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:text="下载"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/more_bt_share"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_width_small"
+                android:layout_height="@dimen/func_icon_width_small"
+                android:src="@mipmap/more_share"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:text="分享链接"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/more_bt_day"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/more_bt_day_icon"
+                android:layout_width="@dimen/func_icon_width_small"
+                android:layout_height="@dimen/func_icon_width_small"
+                android:src="@mipmap/more_day"
+                />
+
+
+            <TextView
+                android:id="@+id/more_bt_day_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:text="白天"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/more_bt_add_marks"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_width_small"
+                android:layout_height="@dimen/func_icon_width_small"
+                android:src="@mipmap/more_tag"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:text="添加书签"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/more_bt_tools"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_width_small"
+                android:layout_height="@dimen/func_icon_width_small"
+                android:src="@mipmap/more_func"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:text="工具"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/more_bt_set"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_width_small"
+                android:layout_height="@dimen/func_icon_width_small"
+                android:src="@mipmap/more_set"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="8sp"
+                android:text="设置"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dark" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        >
+        <ImageView
+            android:id="@+id/more_bt_quit"
+            android:layout_width="@dimen/func_icon_width"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@mipmap/more_quit"
+            android:background="?android:attr/selectableItemBackground"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp" />
+        <ImageView
+            android:id="@+id/more_bt_refresh"
+            android:layout_width="@dimen/func_icon_width"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@mipmap/more_refresh"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="?android:attr/selectableItemBackground"
+            />
+        <ImageView
+            android:id="@+id/more_bt_dis"
+            android:layout_width="@dimen/func_icon_width"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@mipmap/more_dis"
+            android:background="?android:attr/selectableItemBackground"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

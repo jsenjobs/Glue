@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/default_popup"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:layout_width="@dimen/popupwindow_content_width"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/book_mark_edit_del"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="删除" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/book_mark_edit_go"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="前往" />
+
+    </LinearLayout>
+
+</LinearLayout>

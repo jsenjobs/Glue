@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/set_common_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="同步书签"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <LinearLayout
+        android:id="@+id/set_common_ua"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="浏览器标识"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+        <TextView
+            android:id="@+id/set_common_ua_tag"
+            android:text="移动端"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:textSize="10sp"
+            android:layout_marginTop="2dp"
+            android:paddingLeft="24dp"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/set_common_cc"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="清除缓存"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <app.chaosstudio.com.glue.ui.ExpandLayout
+        android:id="@+id/clearCacheExpand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLightGray">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_cache"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_cache_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="缓存"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_form"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_form_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="表单数据"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_his"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_his_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="历史"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_web"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_web_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="网页存储"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_cookies"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_cookies_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="Cookies"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/set_common_cc_ok"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="确认"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </app.chaosstudio.com.glue.ui.ExpandLayout>
+
+    <RelativeLayout
+        android:id="@+id/set_common_adblock"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:text="广告拦截"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:paddingLeft="24dp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:id="@+id/set_common_adblock_tag"
+                android:text="广告拦截已开启"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:textSize="10sp"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="24dp"
+                />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/set_common_adblock_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:checked="false"
+            android:button="@drawable/default_radiobutton_s" />
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/set_common_ad_white"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="白名单"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <Button
+        android:id="@+id/set_common_ad_black"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="黑名单"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <RelativeLayout
+        android:id="@+id/set_common_fullscreen"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:text="全屏浏览"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:paddingLeft="24dp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:id="@+id/set_common_fullscreen_tag"
+                android:text="已开启"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:textSize="10sp"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="24dp"
+                />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/set_common_fullscreen_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:checked="false"
+            android:button="@drawable/default_radiobutton_s" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/set_common_hidden_status"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="全屏隐藏状态栏"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+
+        <CheckBox
+            android:id="@+id/set_common_hidden_status_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:checked="false"
+            android:button="@drawable/default_radiobutton_s" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_common_home"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="主页"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+        <TextView
+            android:id="@+id/set_common_now_home"
+            android:text="默认"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:textSize="10sp"
+            android:layout_marginTop="2dp"
+            android:paddingLeft="24dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_common_se"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="搜索引擎"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+        <TextView
+            android:id="@+id/set_common_se_tag"
+            android:text="百度"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:textSize="10sp"
+            android:layout_marginTop="2dp"
+            android:paddingLeft="24dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_common_dd"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="下载目录"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+        <TextView
+            android:id="@+id/set_common_dd_dir"
+            android:text="/storage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:textSize="10sp"
+            android:layout_marginTop="2dp"
+            android:paddingLeft="24dp"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/set_common_cd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="退出清理数据"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+
+    <app.chaosstudio.com.glue.ui.ExpandLayout
+        android:id="@+id/clearCacheExpand_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLightGray">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_cache_exit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_cache_exit_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="缓存"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_form_exit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_form_exit_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="表单数据"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_his_exit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_his_exit_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="历史"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_web_exit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_web_exit_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="网页存储"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/set_common_cc_cookies_exit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/set_common_cc_cookies_exit_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:checked="false"
+                    android:button="@drawable/default_radiobutton_s" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="44dp"
+                    android:text="Cookies"
+                    android:textColor="@android:color/black" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </app.chaosstudio.com.glue.ui.ExpandLayout>
+    <Button
+        android:id="@+id/set_common_quick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="操作快捷键"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+</LinearLayout>
+

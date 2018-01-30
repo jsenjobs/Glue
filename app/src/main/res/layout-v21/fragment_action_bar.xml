@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    >
+    <include layout="@layout/popup_search_box" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/action_container"
+        android:layout_height="@dimen/action_bar_height"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:src="@mipmap/fun_back"
+            android:id="@+id/fun_back"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:src="@mipmap/fun_forw"
+            android:id="@+id/fun_forw"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:src="@mipmap/fun_home"
+            android:id="@+id/fun_home"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/fun_num"
+                android:id="@+id/fun_num"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                />
+            <TextView
+                android:id="@+id/totalPages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="1"
+                />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:src="@mipmap/fun_more"
+            android:id="@+id/fun_more"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            />
+    </LinearLayout>
+
+</LinearLayout>

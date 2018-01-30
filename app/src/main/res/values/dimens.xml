@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="toolBarSize">46dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="action_bar_height">38dp</dimen>
+    <dimen name="web_title_height">20dp</dimen>
+    <dimen name="func_icon_width">28dp</dimen>
+    <dimen name="func_icon_width_small">18dp</dimen>
+
+    <dimen name="radiobutton_size">16dp</dimen>
+    <dimen name="radiobutton_stroke_size">2dp</dimen>
+    <dimen name="popupwindow_content_width">120dp</dimen>
+</resources>

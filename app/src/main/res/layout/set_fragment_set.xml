@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <Button
+        android:id="@+id/set_common"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="通用"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <Button
+        android:id="@+id/set_self"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="个性化"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <Button
+        android:id="@+id/set_private"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐私"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+
+    <Button
+        android:id="@+id/set_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="高级"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <Button
+        android:id="@+id/set_plugin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="插件"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <Button
+        android:id="@+id/set_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关于"
+        android:paddingLeft="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:background="?android:attr/selectableItemBackground"
+        />
+</LinearLayout>

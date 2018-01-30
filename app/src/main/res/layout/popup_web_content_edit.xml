@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/default_popup"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/group_for_http"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/web_content_new_back"
+                android:gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="后台打开新标签页" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/web_content_new_for"
+                android:gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="前台打开新标签页" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/web_content_copy"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="复制链接" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/group_for_pic"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/web_content_save"
+                android:gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="保存图片" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/web_content_qrcode"
+                android:gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="识别图中二维码" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/web_content_search_pic"
+                android:gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="以图搜图" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/web_content_look_pic"
+                android:gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="看图模式" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/web_content_page_info"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="页面信息" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/web_content_ad_tag"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="    加入黑名单    " />
+
+    </LinearLayout>
+
+</LinearLayout>

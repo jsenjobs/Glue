@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- def Holder -->
+    <string-array name="holder_menu">
+        <item>Foreground</item>
+        <item>Copy link</item>
+        <item>Share</item>
+    </string-array>
+</resources>

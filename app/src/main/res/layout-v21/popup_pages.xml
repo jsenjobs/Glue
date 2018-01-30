@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    >
+
+    <ListView
+        android:id="@+id/lst_pages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dark" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        >
+        <ImageView
+            android:id="@+id/pages_his_browser"
+            android:layout_width="@dimen/func_icon_width"
+            android:layout_height="match_parent"
+            android:src="@mipmap/action_his"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp" />
+        <ImageView
+            android:id="@+id/pages_close_all_pages"
+            android:layout_width="@dimen/func_icon_width"
+            android:layout_height="@dimen/func_icon_width"
+            android:src="@mipmap/action_close_all_pages"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            />
+        <ImageView
+            android:id="@+id/pages_add_page"
+            android:layout_width="@dimen/func_icon_width"
+            android:layout_height="match_parent"
+            android:src="@mipmap/action_add_page"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            />
+        <ImageView
+            android:id="@+id/more_bt_dis"
+            android:layout_width="@dimen/func_icon_width"
+            android:layout_height="match_parent"
+            android:src="@mipmap/more_dis"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            />
+    </LinearLayout>
+
+</LinearLayout>

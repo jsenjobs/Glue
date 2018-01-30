@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/default_popup"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:layout_width="@dimen/popupwindow_content_width"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_1"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_1_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="无操作" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_2"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_2_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="刷新网页" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_3"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_3_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="返回顶部" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_4"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_4_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="滑到底部" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_5_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="输入网址" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_6"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_6_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="新建标签页" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_7"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_7_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="添加书签" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_8"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_8_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="打开书签" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_9"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_9_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="打开历史" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_10"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_10_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="关闭标签页" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_11"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_11_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="上一个标签" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_12"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_12_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="下一个标签" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_13"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_13_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="网页后退" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_14"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_14_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="网页前进" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_15"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_15_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="页內搜索" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_16"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_16_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="主页" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_17"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_17_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="标签管理" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:id="@+id/acq_18"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/acq_18_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginStart="14dp"
+                android:button="@drawable/default_radiobutton_s"
+                android:checked="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="更多" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

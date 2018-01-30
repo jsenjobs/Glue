@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/set_more_force_scale"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="强制缩放"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+
+        <CheckBox
+            android:id="@+id/set_more_force_scale_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:checked="false"
+            android:button="@drawable/default_radiobutton_s" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_more_popup"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="拦截弹出窗口"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+
+        <CheckBox
+            android:id="@+id/set_more_popup_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:checked="false"
+            android:button="@drawable/default_radiobutton_s" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_more_js"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="启用脚本"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+
+        <CheckBox
+            android:id="@+id/set_more_js_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:checked="false"
+            android:button="@drawable/default_radiobutton_s" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_more_crash"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="启动时恢复未关闭页面"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+
+        <CheckBox
+            android:id="@+id/set_more_crash_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:checked="false"
+            android:button="@drawable/default_radiobutton_s" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_more_reload"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:text="返回不重载"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:textColor="@android:color/black"
+            />
+
+        <CheckBox
+            android:id="@+id/set_more_reload_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:checked="false"
+            android:button="@drawable/default_radiobutton_s" />
+    </LinearLayout>
+</LinearLayout>
+

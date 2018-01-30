@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/default_popup"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:layout_width="@dimen/popupwindow_content_width"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:id="@+id/self_logo_edit_no"
+            android:background="?android:attr/selectableItemBackground"
+            >
+
+            <CheckBox
+                android:id="@+id/self_logo_edit_no_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:checked="false"
+                android:button="@drawable/default_radiobutton_s" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="无" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:id="@+id/self_logo_edit_local"
+            android:background="?android:attr/selectableItemBackground"
+            >
+
+            <CheckBox
+                android:id="@+id/self_logo_edit_local_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:checked="false"
+                android:button="@drawable/default_radiobutton_s" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="本地" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:id="@+id/self_logo_edit_default"
+            android:background="?android:attr/selectableItemBackground"
+            >
+
+            <CheckBox
+                android:id="@+id/self_logo_edit_default_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:checked="false"
+                android:button="@drawable/default_radiobutton_s" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="默认" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

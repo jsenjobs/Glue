@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>源码</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta charset="utf-8" />
+  <link rel=stylesheet href="lib/codemirror.css">
+  <script src="lib/codemirror.js"></script>
+  <script src="mode/xml/xml.js"></script>
+  <script src="mode/javascript/javascript.js"></script>
+  <script src="mode/css/css.js"></script>
+  <script src="mode/htmlmixed/htmlmixed.js"></script>
+  <script src="js/lib/beautify.js"></script>
+  <script src="js/lib/beautify-css.js"></script>
+  <script src="js/lib/beautify-html.js"></script>
+  <script src="js/test/sanitytest.js"></script>
+  <script src="js/test/generated/beautify-javascript-tests.js"></script>
+  <script src="js/test/generated/beautify-css-tests.js"></script>
+  <script src="js/test/generated/beautify-html-tests.js"></script>
+  <script src="js/lib/unpackers/javascriptobfuscator_unpacker.js"></script>
+  <script src="js/lib/unpackers/urlencode_unpacker.js"></script>
+  <script src="js/lib/unpackers/p_a_c_k_e_r_unpacker.js"></script>
+  <script src="js/lib/unpackers/myobfuscate_unpacker.js"></script>
+  <style>.CodeMirror { height: 100%; }
+    #sd {
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+  </head>
+
+<body>
+  <script>
+  /*
+    function nativeBack(json) {
+      $("#sd").remove();
+      document.title = '源码:' + json.url
+      CodeMirror(document.body, {
+        // lineNumbers: true,
+        // lineWrapping: true,
+        scrollbarStyle: 'null',
+        readOnly: 'nocursor',
+        value: html_beautify(json.data),
+        mode: "htmlmixed"
+      })
+    }
+    */
+    document.title = '网页源码'
+    CodeMirror(document.body, {
+      // lineNumbers: true,
+      // lineWrapping: true,
+      scrollbarStyle: 'null',
+      readOnly: 'nocursor',
+      value: html_beautify(prompt("jjs://HTTP_GET_SOURCE#hold")),
+      mode: "htmlmixed"
+    })
+
+  </script>
+</body>
+
+</html>
