@@ -21,6 +21,13 @@
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
     </style>
 
+    <style name="AppTheme.FullScreen" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+    </style>
+
     <style name="AppTheme.NoActionBarNoAnimation">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -120,5 +127,15 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:gradientRadius">15dp</item>
         <item name="android:radius">50dp</item>
+    </style>
+
+
+    <style name="VideoSeekBar" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/simple_progressbar</item>
+        <item name="android:indeterminateDrawable">@drawable/simple_progressbar</item>
+        <item name="android:minHeight">13dp</item>
+        <item name="android:maxHeight">13dp</item>
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+        <item name="android:thumbOffset">0dp</item>
     </style>
 </resources>

@@ -41,7 +41,7 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:src="@mipmap/more_dis"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             />
         <ImageView
             android:id="@+id/searchBox_last"
@@ -50,7 +50,7 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:src="@mipmap/icon_last"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             />
     </LinearLayout>
 

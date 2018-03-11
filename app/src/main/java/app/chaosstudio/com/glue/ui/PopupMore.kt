@@ -31,6 +31,7 @@ import app.chaosstudio.com.glue.greendb.model.BookMark
 import app.chaosstudio.com.glue.webconfig.WebViewManager
 import org.greenrobot.eventbus.EventBus
 import app.chaosstudio.com.glue.R.drawable.file
+import app.chaosstudio.com.glue.activity.download.ActivityDownload
 import java.io.File
 
 
@@ -88,11 +89,12 @@ class PopupMore(context: Context, themeResId: Int) : Dialog(context, themeResId)
                     context.startActivity(intent)
                 }
                 R.id.more_bt_download -> {
-                    val intent = Intent(Intent.ACTION_GET_CONTENT)
-                    intent.addCategory(Intent.CATEGORY_DEFAULT)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    intent.setDataAndType(Uri.parse(Environment.getExternalStorageDirectory().toString() + File.separator
-                            + PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.sp_file_download_dir), Environment.DIRECTORY_DOWNLOADS)), "*/*")
+                    // val intent = Intent(Intent.ACTION_GET_CONTENT)
+                    // intent.addCategory(Intent.CATEGORY_DEFAULT)
+                    // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    // intent.setDataAndType(Uri.parse(Environment.getExternalStorageDirectory().toString() + File.separator + PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.sp_file_download_dir), Environment.DIRECTORY_DOWNLOADS)), "*/*")
+                    // context.startActivity(intent)
+                    val intent = Intent(context, ActivityDownload::class.java)
                     context.startActivity(intent)
                 }
                 R.id.more_bt_share -> {

@@ -1,7 +1,9 @@
 package app.chaosstudio.com.glue
 
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.*
@@ -17,10 +19,14 @@ import android.webkit.WebView
 import android.widget.FrameLayout
 import android.widget.Toast
 import android.widget.VideoView
+import app.chaosstudio.com.glue.activity.ListResourcesFragment
+import app.chaosstudio.com.glue.activity.SimpleContainer
 import app.chaosstudio.com.glue.eventb.*
+import app.chaosstudio.com.glue.greendb.gen.PageSourceDao
 import app.chaosstudio.com.glue.greendb.model.BlackUrl
 import app.chaosstudio.com.glue.ui.*
 import app.chaosstudio.com.glue.unit.BrowserUnit
+import app.chaosstudio.com.glue.unit.js_native.MixUnit
 import app.chaosstudio.com.glue.utils.CustomTheme
 import app.chaosstudio.com.glue.utils.DensityUtil
 import app.chaosstudio.com.glue.utils.PermissionHelp
@@ -32,7 +38,6 @@ import kotlinx.android.synthetic.main.content_action_bar.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.content_web_title.*
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.set_fragment_set_common.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import java.io.File
@@ -45,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     var uiHandler:UIHandler? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or  View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
@@ -62,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         PermissionHelp.grantPermissionsStorage(this)
         setContentView(R.layout.activity_main)
 
-        if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.sp_omnibox_control), false))  {
+        if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.sp_omnibox_control), true))  {
             // full
             val lp = webViewContainer.layoutParams as FrameLayout.LayoutParams
             lp.bottomMargin = 0
@@ -77,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         EventBus.getDefault().register(fra_action_bar)
         EventBus.getDefault().register(this)
 
-        WebIconDatabase.getInstance().open(getDirs(cacheDir.absolutePath +"/icons/"));
+        WebIconDatabase.getInstance().open(getDirs(cacheDir.absolutePath +"/icons/"))
         // setSupportActionBar(toolbar)
 
         /*
@@ -94,6 +100,10 @@ class MainActivity : AppCompatActivity() {
 
         GPre.init(this)
         uiHandler = UIHandler(this)
+        MainActivity.instance = this
+
+        App.instances.daoSession.pageSourceDao.deleteAll()
+
     }
 
     /*
@@ -132,25 +142,29 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
     }
 
+    /*
     override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-
         if (intent!!.hasExtra("SURL")) {
             WebViewAction.fire(WebViewAction.ACTION.GO, intent.getStringExtra("SURL"))
         }
     }
+    */
 
     override fun onDestroy() {
         EventBus.getDefault().unregister(fra_webTitle)
         EventBus.getDefault().unregister(fra_webView)
         EventBus.getDefault().unregister(fra_action_bar)
         EventBus.getDefault().unregister(this)
+        MainActivity.instance = null
         super.onDestroy()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         when(keyCode) {
             KeyEvent.KEYCODE_BACK -> {
+                if (isFullScreenMode) {
+                    fullScreen()
+                }
                 if (customViewCallback != null) {
                     customViewCallback?.onCustomViewHidden()
                     return true
@@ -198,6 +212,11 @@ class MainActivity : AppCompatActivity() {
         val lis = View.OnClickListener{ view ->
             popup?.dismiss()
             when(view.id) {
+                R.id.web_content_resource -> {
+                    val intent = Intent(this@MainActivity, SimpleContainer::class.java)
+                    intent.putExtra("fragment", ListResourcesFragment::class.java.name)
+                    this@MainActivity.startActivity(intent)
+                }
                 R.id.web_content_new_back -> WebViewAction.fire(WebViewAction.ACTION.CREATEPAGEBACK, goUrl)
                 R.id.web_content_new_for -> WebViewAction.fire(WebViewAction.ACTION.CREATEPAGE, goUrl)
 
@@ -234,7 +253,31 @@ class MainActivity : AppCompatActivity() {
                     // http://image.baidu.com/pcdutu?queryImageUrl=
                     WebViewAction.fire(WebViewAction.ACTION.CREATEPAGE, "http://image.baidu.com/pcdutu?queryImageUrl=" + URLEncoder.encode(goUrl, "UTF-8"))
                 }
-                R.id.web_content_look_pic -> SimpleToast.makeToast(this@MainActivity, "暂未实现", Toast.LENGTH_LONG).show()
+                R.id.web_content_look_pic -> {
+
+                    val wv = WebViewManager.getCurrentActive()
+                    if(wv!=null) {
+                        val mds = App.instances.daoSession.pageSourceDao.queryBuilder().where(PageSourceDao.Properties.Url.eq(wv.url)).list()
+                        if (mds.size > 0) {
+                            WebViewAction.fire(WebViewAction.ACTION.GO, "file:///android_asset/picture_viewer.html?url=" + mds[0].id)
+                        } else {
+                            val build = ToastWithEdit.Build(this@MainActivity, R.style.SimpleAlert)
+                            build.pos = "取消"
+                            build.message = "获取中"
+                            if (MixUnit.toastWithEdit != null && MixUnit.toastWithEdit!!.isShowing) {
+                                MixUnit.toastWithEdit!!.dismiss()
+                                MixUnit.toastWithEdit = null
+                            }
+                            MixUnit.toastWithEdit = build.build()
+                            MixUnit.toastWithEdit!!.show()
+
+                            wv.loadUrl("javascript:var s = prompt('jjs://BEFORELISTIMAGE#' + " +"escape(encodeURIComponent('<html>'+" + "document.getElementsByTagName('html')[0].innerHTML+'</html>')));")
+                        }
+                    }
+
+                    // wv?.imageGetBaseUrl = wv.url?:""
+                    // WebViewAction.fire(WebViewAction.ACTION.GO, "file:///android_asset/picture_viewer.html")
+                }
 
                 R.id.web_content_page_info -> {
                     val wv = WebViewManager.getCurrentActive()
@@ -275,6 +318,8 @@ class MainActivity : AppCompatActivity() {
 
         root.findViewById<View>(R.id.web_content_page_info).setOnClickListener(lis)
         root.findViewById<View>(R.id.web_content_ad_tag).setOnClickListener(lis)
+
+        root.findViewById<View>(R.id.web_content_resource).setOnClickListener(lis)
 
         popup = SimplePopupWindow(null, root, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true)
         popup?.animationStyle = R.style.popwin_anim_style
@@ -382,6 +427,9 @@ class MainActivity : AppCompatActivity() {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             }
             VideoAction.ACTION.HIDDEN -> doHideCustomView()
+            VideoAction.ACTION.FULLSCREEN_INJECT -> {
+                fullScreen()
+            }
         }
     }
 
@@ -403,8 +451,44 @@ class MainActivity : AppCompatActivity() {
             videoView?.setOnCompletionListener(null)
             videoView = null
         }
+        CustomTheme.hiddenStatus = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.sp_hidden_status), CustomTheme.hiddenStatus)
+        if (CustomTheme.hiddenStatus) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
+        isFullScreenMode = false
         requestedOrientation = originalOrientation
+        webViewContainer.scrollTo(oldX, oldY)
+        FragmentAction.fire(FragmentAction.ACTION.SHOW_UI)
         return true
+    }
+
+    var isFullScreenMode = false
+    var oldX = 0
+    var oldY = 0
+    private fun fullScreen() {
+        if (isFullScreenMode) {
+            isFullScreenMode = false
+            requestedOrientation = originalOrientation
+            CustomTheme.hiddenStatus = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.sp_hidden_status), CustomTheme.hiddenStatus)
+            if (CustomTheme.hiddenStatus) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            } else {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            }
+            webViewContainer.scrollTo(oldX, oldY)
+            FragmentAction.fire(FragmentAction.ACTION.SHOW_UI)
+        } else {
+            isFullScreenMode = true
+            oldX = webViewContainer.x.toInt()
+            oldY = webViewContainer.y.toInt()
+            webViewContainer.scrollTo(0, 0)
+            window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            originalOrientation = requestedOrientation
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            FragmentAction.fire(FragmentAction.ACTION.HIDDEN_UI)
+        }
     }
 
     private inner class VideoCompletionListener : MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener {
@@ -470,6 +554,7 @@ class MainActivity : AppCompatActivity() {
     external fun stringFromJNI(): String
 
     companion object {
+        var instance:MainActivity? = null
 
         // Used to load the 'native-lib' library on application startup.
         init {

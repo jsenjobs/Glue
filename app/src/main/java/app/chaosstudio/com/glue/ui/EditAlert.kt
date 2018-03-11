@@ -2,17 +2,14 @@ package app.chaosstudio.com.glue.ui
 
 import android.app.AlertDialog
 import android.content.Context
-import android.os.Build
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import app.chaosstudio.com.glue.R
-import app.chaosstudio.com.glue.utils.DensityUtil
 
 /**
  * Created by jsen on 2018/1/21.
@@ -72,6 +69,7 @@ class EditAlert(build:Build) : AlertDialog(build.context, build.themeResId) {
         }
         if (build.showTitle) {
             val titleT = root!!.findViewById<TextView>(R.id.alert_title)
+            titleT.visibility = View.VISIBLE
             titleT.text = build.title
         }
 

@@ -59,12 +59,12 @@ class MainActivityFragment : Fragment() {
                     createWebPage()
                 }
                 showWebPage(WebViewManager.getAllNWebView().size - 1)
-                if (activity.intent.hasExtra("SURL")) {
+                if (activity.intent.hasExtra("URL")) {
                     val wv = createWebPage()
                     if(wv == null) {
-                        WebViewManager.getAllNWebView()[WebViewManager.getSize() - 1].loadUrl(activity.intent.getStringExtra("SURL"))
+                        WebViewManager.getAllNWebView()[WebViewManager.getSize() - 1].loadUrl(activity.intent.getStringExtra("URL"))
                     } else {
-                        wv.loadUrl(activity.intent.getStringExtra("SURL"))
+                        wv.loadUrl(activity.intent.getStringExtra("URL"))
                     }
                     showWebPage(WebViewManager.getSize() - 1)
                 }
@@ -75,18 +75,14 @@ class MainActivityFragment : Fragment() {
                 if (activity.intent.hasExtra("URL")) {
                     WebViewManager.getCurrentActive().loadUrl(activity.intent.getStringExtra("URL"))
                 } else {
-                    WebViewManager.getCurrentActive().loadUrl(BrowserUnit.getHome(activity))
-                    if (activity.intent.hasExtra("SURL")) {
-                        WebViewManager.getAllNWebView()[WebViewManager.getSize() - 1].loadUrl(activity.intent.getStringExtra("SURL"))
-                        showWebPage(WebViewManager.getSize() - 1)
-                    }
+                    WebViewAction.fire(WebViewAction.ACTION.GO, BrowserUnit.getHome(activity))
                 }
             }
         } else {
-            if (activity.intent.hasExtra("SURL")) {
-                WebViewManager.getCurrentActive().loadUrl(activity.intent.getStringExtra("SURL"))
+            if (activity.intent.hasExtra("URL")) {
+                WebViewManager.getCurrentActive().loadUrl(activity.intent.getStringExtra("URL"))
             } else {
-                WebViewManager.getCurrentActive().loadUrl(BrowserUnit.getHome(activity))
+                WebViewAction.fire(WebViewAction.ACTION.GO, BrowserUnit.getHome(activity))
             }
         }
     }
@@ -98,7 +94,9 @@ class MainActivityFragment : Fragment() {
             WebViewAction.ACTION.GOFORWARD -> webView.goForward()
             WebViewAction.ACTION.GOBACK -> webView.goBack()
             WebViewAction.ACTION.REFRESH -> webView.reload()
-            WebViewAction.ACTION.GO -> webView.loadUrl(action.url)
+            WebViewAction.ACTION.GO -> {
+                webView.loadUrl(action.url)
+            }
             WebViewAction.ACTION.CHANGEPAGE -> showWebPage(action.page)
             WebViewAction.ACTION.CREATEPAGE -> {
                 val nWebView = createWebPage()
@@ -179,7 +177,7 @@ class MainActivityFragment : Fragment() {
     }
 
     private fun initScrollChange(w:NWebView) {
-        if (sp!!.getBoolean(activity.getString(R.string.sp_omnibox_control), false)) {
+        if (sp!!.getBoolean(activity.getString(R.string.sp_omnibox_control), true)) {
             w.onFling = object : NWebView.OnFling {
                 override fun up() {
                     w.onFling = null

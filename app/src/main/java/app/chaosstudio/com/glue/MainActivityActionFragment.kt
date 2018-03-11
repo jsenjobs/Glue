@@ -10,12 +10,10 @@ import android.preference.Preference
 import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
-import android.webkit.ValueCallback
 import android.widget.Toast
 import app.chaosstudio.com.glue.activity.GoAddress
 import app.chaosstudio.com.glue.activity.ListBookMarksFragment
@@ -32,8 +30,6 @@ import app.chaosstudio.com.glue.ui.PopupMore
 import app.chaosstudio.com.glue.ui.PopupPages
 import app.chaosstudio.com.glue.ui.SimpleToast
 import app.chaosstudio.com.glue.unit.BrowserUnit
-import app.chaosstudio.com.glue.unit.js_native.MixUnit
-import app.chaosstudio.com.glue.utils.CustomTheme
 import app.chaosstudio.com.glue.webconfig.WebViewManager
 import kotlinx.android.synthetic.main.fragment_action_bar.*
 import kotlinx.android.synthetic.main.fragment_web_title.*
@@ -333,6 +329,16 @@ class MainActivityActionFragment : Fragment() {
             FragmentAction.ACTION.ON_FIND_NUM -> {
                 searchBox_matches.text = action.tag.toString()
             }
+            FragmentAction.ACTION.HIDDEN_UI -> {
+                action_container.tag = action_container.visibility
+                action_container.visibility = View.GONE
+                searchBox.tag = searchBox.visibility
+                searchBox.visibility = View.GONE
+            }
+            FragmentAction.ACTION.SHOW_UI -> {
+                action_container.visibility = action_container.tag as Int
+                searchBox.visibility = searchBox.tag as Int
+            }
         }
     }
 
@@ -420,9 +426,7 @@ class MainActivityActionFragment : Fragment() {
                 FragmentAction.fire(FragmentAction.ACTION.SEARCH)
             }
             "16" -> {
-                val ac = WebViewAction(WebViewAction.ACTION.GO)
-                ac.url = BrowserUnit.getHome(activity)
-                EventBus.getDefault().post(ac)
+                WebViewAction.fire(WebViewAction.ACTION.GO, BrowserUnit.getHome(activity))
             }
             "17" -> {
                 hiddenFun()

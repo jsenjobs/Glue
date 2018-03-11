@@ -62,6 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="1.2dp"
         android:layout_alignBottom="@id/webView_container"
+        android:progressDrawable="@drawable/simple_progressbar"
         style="?android:attr/progressBarStyleHorizontal"
         android:max="100"
         android:progress="0"

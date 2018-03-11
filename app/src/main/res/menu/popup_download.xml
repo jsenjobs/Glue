@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.chaosstudio.app.dotedu.MainActivity"
+    >
+    <item
+        android:id="@+id/add_tag"
+        android:orderInCategory="1"
+        android:title="清除"
+        android:icon="@mipmap/icon_add"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/clear_tag"
+        android:orderInCategory="1"
+        android:title="清除"
+        android:icon="@mipmap/icon_trash"
+        app:showAsAction="always"/>
+    <!--
+    <item
+        android:id="@+id/action_new"
+        android:orderInCategory="2"
+        android:title="快捷功能"
+        android:icon="@mipmap/icon_no_bel"
+        app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/submenu1"
+                android:title="扫一扫"
+                android:titleCondensed="扫一扫"
+                android:icon="@android:drawable/ic_menu_add" />
+            <item android:id="@+id/submenu2"
+                android:title="退出"
+                android:titleCondensed="Cancel"
+                android:icon="@android:drawable/ic_menu_agenda" />
+            <item android:id="@+id/submenu3"
+                android:title="设置IP"
+                android:titleCondensed="设置"
+                android:icon="@android:drawable/ic_menu_call" />
+        </menu>
+    </item>
+    -->
+</menu>

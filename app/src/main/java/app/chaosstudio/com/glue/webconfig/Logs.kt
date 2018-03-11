@@ -36,7 +36,7 @@ class Logs {
         for (log in dao.queryBuilder().where(LogModeDao.Properties.Uuid.eq(uuid)).list()) {
             try {
                 val uri = Uri.parse(log.url)
-                if (uri.path.endsWith(".mp4") || uri.path.endsWith(".mp3")) {
+                if (filterVideoAudioPicture(uri)) {
                     result.add(log)
                 }
             } catch (e : Exception) {
@@ -44,5 +44,27 @@ class Logs {
             }
         }
         return result
+    }
+
+    fun filterVideoAudioPicture(uri: Uri):Boolean {
+        val path = uri.path.toLowerCase()
+        return path.endsWith(".mp4") ||
+                path.endsWith(".mp3") ||
+                path.endsWith(".wav") ||
+                path.endsWith(".midi") ||
+                path.endsWith(".cda") ||
+                path.endsWith(".wma") ||
+                path.endsWith(".flac") ||
+                path.endsWith(".avi") ||
+                path.endsWith(".rmvb") ||
+                path.endsWith(".rm") ||
+                path.endsWith(".asf") ||
+                path.endsWith(".divx") ||
+                path.endsWith(".mpg") ||
+                path.endsWith(".mpeg") ||
+                path.endsWith(".wmv") ||
+                path.endsWith(".mkv") ||
+                path.endsWith(".vob") ||
+                path.endsWith(".m3u8")
     }
 }

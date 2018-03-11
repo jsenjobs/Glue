@@ -19,6 +19,13 @@ import app.chaosstudio.com.glue.eventb.FragmentAction
 import app.chaosstudio.com.glue.ui.SimpleToast
 import app.chaosstudio.com.glue.unit.BrowserUnit
 import app.chaosstudio.com.glue.unit.IntentUnit
+import app.chaosstudio.com.glue.unit.js_native.MixUnit
+import app.chaosstudio.com.glue.utils.OKManager
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
 import java.net.URISyntaxException
 import java.util.*
 
@@ -30,6 +37,7 @@ class NWebView : WebView {
 
     var sourceData = "" // 网页源码
     var crashClose = false // 是否需要恢复未关闭页面
+    var imageGetBaseUrl = "" //获取图片的网址
 
     var intentTask = false
     var taskTag = 0L
@@ -89,6 +97,7 @@ class NWebView : WebView {
         if (android.os.Build.VERSION_CODES.JELLY_BEAN <= Build.VERSION.SDK_INT)
             setFindListener(NFindListener())
 
+        PluginFilter.init(context)
     }
 
     override fun findAll(find: String?): Int {
@@ -136,7 +145,6 @@ class NWebView : WebView {
         // pageFirst = false
         super.loadUrl(nUrl)
     }
-
     // var checkUI = true
     override fun reload() {
         // wvClient!!.isWhite = adBlock!!.isWhite(url)

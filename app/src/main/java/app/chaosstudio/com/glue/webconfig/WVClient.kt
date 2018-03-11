@@ -132,7 +132,9 @@ class WVClient(val webView: NWebView) : WebViewClient() {
 				view?.loadUrl(css)
         }
         // view?.loadUrl("javascript:prompt('jjs://ONSOURCEGET#' + " +"encodeURIComponent('<head>'+" + "document.getElementsByTagName('html')[0].innerHTML+'</head>'));")
-        view?.loadUrl("javascript:var s = prompt('jjs://ONSOURCEGET#' + " +"'<html>'+" + "document.getElementsByTagName('html')[0].innerHTML+'</html>');")
+        // view?.loadUrl("javascript:var s = prompt('jjs://ONSOURCEGET#' + " +"escape(encodeURIComponent('<html>'+" + "document.getElementsByTagName('html')[0].innerHTML+'</html>')));")
+        view?.loadUrl(BrowserUnit.getFullVideoJsInject(url?:""))
+        PluginFilter.filterPlugin(webView, url!!)
 
         if (!TextUtils.isEmpty(view!!.title)) {
             if (WebViewManager.getCurrentActive() == view) {

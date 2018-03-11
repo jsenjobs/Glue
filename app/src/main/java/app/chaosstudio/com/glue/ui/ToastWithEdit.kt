@@ -28,6 +28,7 @@ class ToastWithEdit(build:Build) : AlertDialog(build.context, build.themeResId) 
 
 
     var root:View? = null
+    var isCancel = false
     init {
         root = View.inflate(context, R.layout.toast_with_edit, null)
         root!!.findViewById<TextView>(R.id.alert_content)
@@ -35,6 +36,7 @@ class ToastWithEdit(build:Build) : AlertDialog(build.context, build.themeResId) 
         root!!.findViewById<TextView>(R.id.toast_pos).text = build.pos
         root!!.findViewById<TextView>(R.id.toast_pos).setOnClickListener { v ->
             dismiss()
+            isCancel = true
             build.listener?.onClick(v)
         }
 
@@ -53,6 +55,7 @@ class ToastWithEdit(build:Build) : AlertDialog(build.context, build.themeResId) 
     }
 
     override fun show() {
+        isCancel = false
         super.show()
         window.setContentView(root)
     }

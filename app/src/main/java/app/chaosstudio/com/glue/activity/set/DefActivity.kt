@@ -3,35 +3,27 @@ package app.chaosstudio.com.glue.activity.set
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
-import android.content.ContextWrapper
-import android.content.DialogInterface
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.FrameLayout
-import android.widget.ListView
-import android.widget.TextView
-
-import java.util.ArrayList
-import java.util.Arrays
-import java.util.Timer
-import java.util.TimerTask
+import android.widget.*
 
 import app.chaosstudio.com.glue.MainActivity
 import app.chaosstudio.com.glue.R
+import app.chaosstudio.com.glue.eventb.WebViewAction
 import app.chaosstudio.com.glue.greendb.model.Record
 import app.chaosstudio.com.glue.unit.BrowserUnit
 import app.chaosstudio.com.glue.unit.IntentUnit
 import app.chaosstudio.com.glue.unit.RecordUnit
+import java.util.*
 
 /**
  * Created by jsen on 2018/1/23.
+ *
  */
 
 class DefActivity : AppCompatActivity() {
@@ -43,12 +35,19 @@ class DefActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         if (intent == null || intent.data == null) {
             finish()
             overridePendingTransition(0, 0)
             return
         }
+
+        if (MainActivity.instance != null) {
+            WebViewAction.fire(WebViewAction.ACTION.CREATEPAGE, intent.data!!.toString())
+            finish()
+            overridePendingTransition(0, 0)
+            return
+        }
+
 
         first = Record()
         first!!.title = "页面"
@@ -70,7 +69,11 @@ class DefActivity : AppCompatActivity() {
         timer!!.schedule(task, TIMER_SCHEDULE_DEFAULT.toLong())
     }
 
+
+
+
     public override fun onNewIntent(intent: Intent?) {
+        Log.e("MARK", "NEWINTENT1")
         if (intent == null || intent.data == null || first == null) {
             finish()
             overridePendingTransition(0, 0)

@@ -257,6 +257,13 @@ class MainActivityWebTitle : Fragment() {
                     webView_mark.tag = false
                 }
             }
+            FragmentAction.ACTION.HIDDEN_UI -> {
+                webView_container.tag = webView_container.visibility
+                webView_container.visibility = View.GONE
+            }
+            FragmentAction.ACTION.SHOW_UI -> {
+                webView_container.visibility = webView_container.tag as Int
+            }
         }
     }
 }

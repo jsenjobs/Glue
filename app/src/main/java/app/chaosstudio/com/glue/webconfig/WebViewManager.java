@@ -90,7 +90,6 @@ public class WebViewManager {
         return -1;
     }
     public static int getSize() {
-        // Log.e("TTTTTT", list.size()+"");
         return list.size();
     }
     public static NWebView get(int i) {

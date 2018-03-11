@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -43,7 +43,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:id="@+id/mini_bt_ua_mode_icon"
@@ -69,7 +69,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:id="@+id/mini_bt_fullscreen_icon"
@@ -95,13 +95,12 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
                 android:layout_height="@dimen/func_icon_width"
-                android:src="@mipmap/default_fav"
-                />
+                android:src="@mipmap/default_fav" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -119,7 +118,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -150,22 +149,20 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
                 android:layout_height="@dimen/func_icon_width"
-                android:src="@mipmap/icon_save_page"
-                />
+                android:src="@mipmap/icon_save_page" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:textSize="8sp"
                 android:text="离线网页"
-                />
+                android:textSize="8sp" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/mini_bt_saved_page"
@@ -174,7 +171,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -198,13 +195,12 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
                 android:layout_height="@dimen/func_icon_width"
-                android:src="@mipmap/icon_screenshot"
-                />
+                android:src="@mipmap/icon_screenshot" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -221,7 +217,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -245,7 +241,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -276,7 +272,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -300,7 +296,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -324,7 +320,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -347,7 +343,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -371,7 +367,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="?android:attr/selectableItemBackground">
+            android:background="?android:attr/selectableItemBackgroundBorderless">
 
             <ImageView
                 android:layout_width="@dimen/func_icon_width"
@@ -412,7 +408,7 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:src="@mipmap/more_quit"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             />
         <View
             android:layout_width="0dp"
@@ -427,7 +423,7 @@
             android:src="@mipmap/more_refresh"
             android:layout_marginRight="20dp"
             android:layout_marginEnd="20dp"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             />
         <ImageView
             android:id="@+id/mini_bt_dis"
@@ -436,7 +432,7 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:src="@mipmap/more_dis"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             />
     </LinearLayout>
 

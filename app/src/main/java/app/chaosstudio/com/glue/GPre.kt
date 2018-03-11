@@ -1,7 +1,9 @@
 package app.chaosstudio.com.glue
 
 import android.content.Context
+import android.os.Environment
 import android.preference.PreferenceManager
+import java.io.File
 
 /**
  * Created by jsen on 2018/1/28.
@@ -42,6 +44,14 @@ class GPre{
 
             volumeScroll = sp.getBoolean(context.getString(R.string.sp_volume_scroll), false)
             flingPage = sp.getBoolean(context.getString(R.string.sp_fling_page), true)
+
+            downloadDir = sp.getString(context.getString(R.string.sp_file_download_dir), Environment.DIRECTORY_DOWNLOADS + File.separator + "glue")
+        }
+
+        var downloadDir = ""
+        set(value) {
+            PreferenceManager.getDefaultSharedPreferences(App.instances).edit().putString(App.instances.getString(R.string.sp_file_download_dir), value).apply()
+            field = value
         }
     }
 }

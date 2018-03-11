@@ -17,7 +17,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:id="@+id/ua_edit_default"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             >
 
             <CheckBox
@@ -44,7 +44,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:id="@+id/ua_edit_desk"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             >
 
             <CheckBox
@@ -71,7 +71,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:id="@+id/ua_edit_custom"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             >
 
             <CheckBox

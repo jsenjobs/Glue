@@ -28,15 +28,8 @@ import org.greenrobot.eventbus.Subscribe
  */
 
 class ListLogsFragment : FragmentBase() {
-    companion object {
-        var isResources = false
-    }
     init {
-        title = if (isResources) {
-            "资源嗅探"
-        } else {
-            "日志记录"
-        }
+        title = "日志记录"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -54,11 +47,7 @@ class ListLogsFragment : FragmentBase() {
             activity.finish()
             return
         }
-        data = if (isResources) {
-            wv.logs.findResources(wv.uuid)
-        } else {
-            wv.logs.getLogs(wv.uuid)
-        }
+        data = wv.logs.getLogs(wv.uuid)
 
         if (data == null || data!!.isEmpty()) {
             record_list_empty.visibility = View.VISIBLE

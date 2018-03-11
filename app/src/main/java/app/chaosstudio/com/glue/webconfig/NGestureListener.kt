@@ -1,6 +1,5 @@
 package app.chaosstudio.com.glue.webconfig
 
-import android.os.Handler
 import android.view.GestureDetector
 import android.view.MotionEvent
 

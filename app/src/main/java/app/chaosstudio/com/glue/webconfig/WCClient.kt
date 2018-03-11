@@ -93,7 +93,7 @@ class WCClient(val webView: NWebView) : WebChromeClient() {
     override fun onJsPrompt(view: WebView?, url: String?, message: String?, defaultValue: String?, result: JsPromptResult?): Boolean {
         val uri = Uri.parse(message)
         val f = MixUnit.filter(uri)
-        if (!TextUtils.isEmpty(f)) {
+        if (f != null) {
             result?.confirm(f)
             return true
         }

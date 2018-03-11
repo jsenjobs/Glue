@@ -6,5 +6,5 @@ package app.chaosstudio.com.glue.utils;
 
 public class CustomTheme {
     public static int colorPrimary = 0xFFFFFF;
-    public static boolean hiddenStatus = false;
+    public static boolean hiddenStatus = true;
 }

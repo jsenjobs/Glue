@@ -105,6 +105,15 @@
             android:paddingRight="60dp"
             android:background="?android:attr/selectableItemBackground"
             android:text="    加入黑名单    " />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/web_content_resource"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="资源嗅探" />
 
     </LinearLayout>
 

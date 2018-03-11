@@ -20,14 +20,25 @@ import app.chaosstudio.com.glue.utils.CustomTheme
 import app.chaosstudio.com.glue.utils.ScreenshotTask
 import app.chaosstudio.com.glue.webconfig.WebViewManager
 import org.greenrobot.eventbus.EventBus
-import java.util.ArrayList
 import android.content.pm.ShortcutManager
 import android.content.pm.ShortcutInfo
 import android.graphics.drawable.Icon
+import app.chaosstudio.com.glue.App
 import app.chaosstudio.com.glue.activity.ListHistoryFragment
 import app.chaosstudio.com.glue.activity.ListLogsFragment
+import app.chaosstudio.com.glue.activity.ListResourcesFragment
 import app.chaosstudio.com.glue.activity.SimpleContainer
+import app.chaosstudio.com.glue.activity.set.DefActivity
+import app.chaosstudio.com.glue.greendb.gen.PageSourceDao
+import app.chaosstudio.com.glue.unit.js_native.MixUnit
+import app.chaosstudio.com.glue.utils.OKManager
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
 import java.net.URLEncoder
+import java.util.*
 
 
 /**
@@ -35,6 +46,10 @@ import java.net.URLEncoder
  */
 
 class PopupMini(context: Context, themeResId: Int) : Dialog(context, themeResId) {
+
+    companion object {
+        var getResourceToast:ToastWithEdit? = null
+    }
 
     var spp:SharedPreferences? = null
     var popUAModels: ArrayList<PopModel>
@@ -92,7 +107,7 @@ class PopupMini(context: Context, themeResId: Int) : Dialog(context, themeResId)
                     WebViewManager.reloadPreferences()
                 }
                 R.id.mini_bt_fullscreen -> {
-                    val fullscreen = sp.getBoolean(context.getString(R.string.sp_hidden_status), false)
+                    val fullscreen = sp.getBoolean(context.getString(R.string.sp_hidden_status), true)
                     if(fullscreen) {
                         sp.edit().putBoolean(context.getString(R.string.sp_hidden_status), false).apply()
                         CustomTheme.hiddenStatus = false
@@ -157,10 +172,11 @@ class PopupMini(context: Context, themeResId: Int) : Dialog(context, themeResId)
                                 // intent.data = content_url
                                 intent.action = Intent.ACTION_VIEW //action必须设置，不然报错
                                 intent.putExtra("SURL", wv.url)
-                                intent.setClassName("app.chaosstudio.com.glue", "app.chaosstudio.com.glue.MainActivity") //调用系统浏览器
+                                intent.data = Uri.parse(wv.url)
+                                intent.setClassName(context.packageName, DefActivity::class.java.name) //调用系统浏览器
                                 intent.addCategory(Intent.CATEGORY_LAUNCHER)
 
-                                val info = ShortcutInfo.Builder(context, "app.chaosstudio.com.glue")
+                                val info = ShortcutInfo.Builder(context, UUID.randomUUID().toString())
                                         .setIcon(Icon.createWithResource(context, R.mipmap.ic_launcher))
                                         .setShortLabel(wv.title)
                                         .setIntent(intent)
@@ -183,7 +199,7 @@ class PopupMini(context: Context, themeResId: Int) : Dialog(context, themeResId)
                             // val content_url = Uri.parse(wv.url)
                             // intent.data = content_url
                             intent.putExtra("SURL", wv.url)
-                            intent.setClassName("app.chaosstudio.com.glue", "app.chaosstudio.com.glue.MainActivity") //调用系统浏览器
+                            intent.setClassName(context.packageName, DefActivity::class.java.name) //调用系统浏览器
                             intent.addCategory(Intent.CATEGORY_LAUNCHER)
                             shortcutintent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, intent)
                             context.sendBroadcast(shortcutintent)
@@ -193,7 +209,26 @@ class PopupMini(context: Context, themeResId: Int) : Dialog(context, themeResId)
 
                 R.id.mini_bt_code -> {
                     dismiss()
-                    WebViewAction.fire(WebViewAction.ACTION.GO, "file:///android_asset/plugin_source/code_viewer.html")
+                    val wv = WebViewManager.getCurrentActive()
+                    if(wv!=null) {
+                        val mds = App.instances.daoSession.pageSourceDao.queryBuilder().where(PageSourceDao.Properties.Url.eq(wv.url)).list()
+                        if (!mds.isEmpty()) {
+                            WebViewAction.fire(WebViewAction.ACTION.GO, "file:///android_asset/plugin_source/code_viewer.html?url=" + mds[0].id)
+                        } else {
+                            val build = ToastWithEdit.Build(context, R.style.SimpleAlert)
+                            build.pos = "取消"
+                            build.message = "正在获取源码"
+                            if (MixUnit.toastWithEdit != null && MixUnit.toastWithEdit!!.isShowing) {
+                                MixUnit.toastWithEdit!!.dismiss()
+                                MixUnit.toastWithEdit = null
+                            }
+                            MixUnit.toastWithEdit = build.build()
+                            MixUnit.toastWithEdit!!.show()
+                            wv.loadUrl("javascript:var s = prompt('jjs://BEFOREVIEWSOURCE#' + " +"escape(encodeURIComponent('<html>'+" + "document.getElementsByTagName('html')[0].innerHTML+'</html>')));")
+                        }
+                    }
+
+                    // WebViewAction.fire(WebViewAction.ACTION.GO, "file:///android_asset/plugin_source/code_viewer.html")
                 }
                 R.id.mini_bt_search -> {
                     dismiss()
@@ -201,14 +236,12 @@ class PopupMini(context: Context, themeResId: Int) : Dialog(context, themeResId)
                 }
                 R.id.mini_bt_resources -> {
                     dismiss()
-                    ListLogsFragment.isResources = true
                     val intent = Intent(context, SimpleContainer::class.java)
-                    intent.putExtra("fragment", ListLogsFragment::class.java.name)
+                    intent.putExtra("fragment", ListResourcesFragment::class.java.name)
                     context.startActivity(intent)
                 }
                 R.id.mini_bt_logs -> {
                     dismiss()
-                    ListLogsFragment.isResources = false
                     val intent = Intent(context, SimpleContainer::class.java)
                     intent.putExtra("fragment", ListLogsFragment::class.java.name)
                     context.startActivity(intent)
@@ -314,7 +347,7 @@ class PopupMini(context: Context, themeResId: Int) : Dialog(context, themeResId)
             root.findViewById<TextView>(R.id.mini_bt_ua_mode_txt).text = "非电脑模式"
             root.findViewById<ImageView>(R.id.mini_bt_ua_mode_icon).setImageResource(R.mipmap.icon_phone)
         }
-        val fullscreen = sp.getBoolean(context.getString(R.string.sp_hidden_status), false)
+        val fullscreen = sp.getBoolean(context.getString(R.string.sp_hidden_status), true)
         if(fullscreen) {
             root.findViewById<TextView>(R.id.mini_bt_fullscreen_txt).text = "全屏"
             root.findViewById<ImageView>(R.id.mini_bt_fullscreen_icon).setImageResource(R.mipmap.icon_fullscreen)

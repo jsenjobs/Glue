@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.KeyEvent
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
@@ -19,6 +20,7 @@ import app.chaosstudio.com.glue.R
 import app.chaosstudio.com.glue.eventb.WebViewAction
 import app.chaosstudio.com.glue.ui.CompleteAdapter
 import app.chaosstudio.com.glue.ui.SimpleToast
+import app.chaosstudio.com.glue.utils.CustomTheme
 import kotlinx.android.synthetic.main.activity_go_address.*
 import org.greenrobot.eventbus.EventBus
 
@@ -32,6 +34,11 @@ class GoAddress: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or  View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
+        if (CustomTheme.hiddenStatus) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         }
         setContentView(R.layout.activity_go_address)
 

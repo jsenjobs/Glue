@@ -26,11 +26,13 @@ import java.net.URLEncoder;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
+import app.chaosstudio.com.glue.GPre;
 import app.chaosstudio.com.glue.R;
 import app.chaosstudio.com.glue.ui.SimpleToast;
 
 /**
  * Created by jsen on 2018/1/21.
+ *
  */
 
 public class BrowserUnit {
@@ -61,7 +63,7 @@ public class BrowserUnit {
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         request.setTitle(filename);
         request.setMimeType(mimeType);
-        String dir = PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.sp_file_download_dir), Environment.DIRECTORY_DOWNLOADS);
+        String dir = GPre.Companion.getDownloadDir(); // PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.sp_file_download_dir), Environment.DIRECTORY_DOWNLOADS);
         request.setDestinationInExternalPublicDir(dir, filename);
 
         DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
@@ -276,6 +278,31 @@ public class BrowserUnit {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public static String getFullVideoJsInject(String url) {
+        String refer = referParser(url);
+        if (null != refer) {
+            return "javascript:document.getElementsByClassName('" + referParser(url) + "')[0].addEventListener('click',function(){prompt('jjs://INJECTFULLSCREEN#hold');return false;});";
+        }else {
+            return "javascript:";
+        }
+    }
+    /**
+     * 对不同的视频网站分析相应的全屏控件
+     * @param url 加载的网页地址
+     * @return 相应网站全屏按钮的class标识
+     */
+    private static String referParser(String url){
+        if (url.contains("le.com")) {
+            return "playB";   //乐视Tv
+        } else if (url.contains("bilibili")) {
+            return "icon-widescreen"; //bilibili
+        }else if (url.contains("qq")) {
+            return "txp_btn_fullscreen";   //腾讯视频
+        }
+
+        return null;
     }
 
     public final static String defaultHome = "file:///android_asset/home.html";

@@ -56,7 +56,7 @@ class SetFragment : FragmentBase() {
                     startActivity(intent)
                 }
                 R.id.set_plugin -> {
-                    val intent = Intent(activity, Set::class.java)
+                    val intent = Intent(activity, SimpleContainer::class.java)
                     intent.putExtra("fragment", SetPluginFragment::class.java.name)
                     startActivity(intent)
                 }

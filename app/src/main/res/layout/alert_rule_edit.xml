@@ -54,7 +54,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:text="确定添加"
+                android:text="确定"
                 android:textSize="14sp"
                 />
         </LinearLayout>

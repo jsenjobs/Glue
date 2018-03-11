@@ -2,9 +2,9 @@
 <html>
 
 <head>
-  <title>源码</title>
+  <title>网页源码</title>
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-  <meta charset="utf-8" />
+  <meta charset="utf-8" >
   <link rel=stylesheet href="lib/codemirror.css">
   <script src="lib/codemirror.js"></script>
   <script src="mode/xml/xml.js"></script>
@@ -32,30 +32,27 @@
 
 <body>
   <script>
-  /*
-    function nativeBack(json) {
-      $("#sd").remove();
-      document.title = '源码:' + json.url
+    function getQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 匹配目标参数
+      var result = window.location.search.substr(1).match(reg); // 对querystring匹配目标参数
+      if (result != null) {
+        return decodeURIComponent(result[2]);
+      } else {
+        return null;
+      }
+    }
+    var urll = getQueryString('url')
+    if(urll) {
+      document.title = '源码：' + urll
       CodeMirror(document.body, {
         // lineNumbers: true,
         // lineWrapping: true,
         scrollbarStyle: 'null',
         readOnly: 'nocursor',
-        value: html_beautify(json.data),
+        value: html_beautify(prompt("jjs://HTTP_GET_SOURCE#" + urll)),
         mode: "htmlmixed"
       })
     }
-    */
-    document.title = '网页源码'
-    CodeMirror(document.body, {
-      // lineNumbers: true,
-      // lineWrapping: true,
-      scrollbarStyle: 'null',
-      readOnly: 'nocursor',
-      value: html_beautify(prompt("jjs://HTTP_GET_SOURCE#hold")),
-      mode: "htmlmixed"
-    })
-
   </script>
 </body>
 

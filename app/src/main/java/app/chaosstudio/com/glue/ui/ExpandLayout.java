@@ -128,10 +128,8 @@ public class ExpandLayout extends RelativeLayout {
 
     public void toggleExpand() {
         if (isExpand) {
-            Log.e("TTTT", "COL");
             collapse();
         } else {
-            Log.e("TTTT", "EXP");
             expand();
         }
     }

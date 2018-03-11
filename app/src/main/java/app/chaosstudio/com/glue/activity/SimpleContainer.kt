@@ -1,7 +1,5 @@
 package app.chaosstudio.com.glue.activity
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -14,17 +12,12 @@ import android.view.WindowManager
 import app.chaosstudio.com.glue.R
 import app.chaosstudio.com.glue.activity.set.FragmentBase
 import app.chaosstudio.com.glue.activity.set.SetFragment
-import app.chaosstudio.com.glue.eventb.ActionBarAction
 import app.chaosstudio.com.glue.eventb.FragmentAction
-import app.chaosstudio.com.glue.ui.SimpleAlert
 import app.chaosstudio.com.glue.utils.CustomTheme
-import app.chaosstudio.com.glue.webconfig.WebViewManager
 import kotlinx.android.synthetic.main.activity_simple.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.EventBusException
 import org.greenrobot.eventbus.Subscribe
-import android.widget.Toast
-import app.chaosstudio.com.glue.utils.PermissionHelp.REQUEST_CODE_ASK_PERMISSIONS_1
 
 
 /**

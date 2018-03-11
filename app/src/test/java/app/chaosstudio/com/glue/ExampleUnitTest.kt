@@ -77,4 +77,14 @@ class ExampleUnitTest {
 
         System.out.println(uri.fragment)
     }
+
+    @Test
+    fun testNum() {
+        System.out.println(35376426 * 100)
+    }
+
+    @Test fun testName() {
+        System.out.println(ExampleUnitTest::class.java.name)
+        System.out.println(TestJav::class.java.name)
+    }
 }

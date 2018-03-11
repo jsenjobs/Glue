@@ -11,6 +11,7 @@ import org.greenrobot.eventbus.EventBus
 class VideoAction(val action: ACTION) {
     enum class ACTION {
         FULLSCREEN,
+        FULLSCREEN_INJECT,
         HIDDEN
     }
     var view:View? = null

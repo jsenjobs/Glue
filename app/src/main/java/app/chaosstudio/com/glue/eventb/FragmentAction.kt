@@ -19,7 +19,10 @@ class FragmentAction(val action: ACTION) {
 
         ON_FIND_NUM,
 
-        FULL_MODE_CHANGE
+        FULL_MODE_CHANGE,
+
+        HIDDEN_UI,
+        SHOW_UI
     }
     var tag:Int = -1
     var disX:Float = 1f

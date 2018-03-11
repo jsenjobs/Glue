@@ -25,6 +25,7 @@ import android.webkit.CookieManager
 import android.webkit.WebViewDatabase
 import android.widget.TextView
 import app.chaosstudio.com.glue.App
+import app.chaosstudio.com.glue.GPre
 import app.chaosstudio.com.glue.activity.SimpleContainer
 import app.chaosstudio.com.glue.eventb.FragmentAction
 import app.chaosstudio.com.glue.ui.EditAlert
@@ -48,7 +49,6 @@ import java.util.ArrayList
 class SetCommonFragment : FragmentBase() {
 
     val base = Environment.getExternalStorageDirectory().toString() + File.separator
-    var dir:String = ""
 
     init {
         title = "通用"
@@ -306,7 +306,7 @@ class SetCommonFragment : FragmentBase() {
             else -> set_common_ua_tag.text = "默认"// settings.userAgentString = userAgentOriginal
         }
 
-        // clear cache
+        // stopAllTask cache
         set_common_cc_cache_r.isChecked = sp!!.getBoolean(context.getString(R.string.sp_clear_cache), true)
         set_common_cc_form_r.isChecked = sp!!.getBoolean(context.getString(R.string.sp_clear_form), true)
         set_common_cc_his_r.isChecked = sp!!.getBoolean(context.getString(R.string.sp_clear_history), true)
@@ -327,19 +327,17 @@ class SetCommonFragment : FragmentBase() {
             set_common_adblock_tag.text = "未开启"
             set_common_adblock_r.isChecked = false
         }
-        if(sp!!.getBoolean(context.getString(R.string.sp_omnibox_control), false))  {
+        if(sp!!.getBoolean(context.getString(R.string.sp_omnibox_control), true))  {
             set_common_fullscreen_tag.text = "已开启"
             set_common_fullscreen_r.isChecked = true
         } else {
             set_common_fullscreen_tag.text = "未开启"
             set_common_fullscreen_r.isChecked = false
         }
-        set_common_hidden_status_r.isChecked = sp!!.getBoolean(context.getString(R.string.sp_hidden_status), false)
+        set_common_hidden_status_r.isChecked = sp!!.getBoolean(context.getString(R.string.sp_hidden_status), true)
 
 
-        dir = sp!!.getString(context.getString(R.string.sp_file_download_dir), Environment.DIRECTORY_DOWNLOADS)
-
-        set_common_dd_dir.text = base + dir
+        set_common_dd_dir.text = base + GPre.downloadDir
 
         clearCacheExpand.initExpand(false)
         clearCacheExpand_exit.initExpand(false)
@@ -353,7 +351,7 @@ class SetCommonFragment : FragmentBase() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if(sp!!.getBoolean(context.getString(R.string.sp_omnibox_control), false)) {
+        if(sp!!.getBoolean(context.getString(R.string.sp_omnibox_control), true)) {
             for (w:NWebView in WebViewManager.getAllNWebView()) {
                 initScrollChange(w)
             }
@@ -525,15 +523,18 @@ class SetCommonFragment : FragmentBase() {
     var downloadDirAlert:EditAlert? = null
     fun createDownloadDirAlert() {
         val build = EditAlert.Build(context, R.style.SimpleAlert)
-        build.content = sp!!.getString(context.getString(R.string.sp_file_download_dir), Environment.DIRECTORY_DOWNLOADS)
+        build.content = GPre.downloadDir// sp!!.getString(context.getString(R.string.sp_file_download_dir), Environment.DIRECTORY_DOWNLOADS)
         build.onPos = View.OnClickListener { view ->
             val p = downloadDirAlert!!.text
             val fs = File(base + p)
             try{
                 fs.mkdirs()
-                sp!!.edit().putString(context.getString(R.string.sp_file_download_dir), downloadDirAlert!!.text).apply()
-                dir = p?:dir
-                set_common_dd_dir.text = base + dir
+                // sp!!.edit().putString(context.getString(R.string.sp_file_download_dir), downloadDirAlert!!.text).apply()
+                // dir = p?:dir
+                if (!TextUtils.isEmpty(p)) {
+                    GPre.downloadDir = p.toString()
+                    set_common_dd_dir.text = base + GPre.downloadDir
+                }
             } catch (e:Exception) {
                 e.printStackTrace()
             }

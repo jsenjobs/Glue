@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@color/colorLightGray">
+
+    <ImageView
+        android:contentDescription="@null"
+        android:id="@+id/icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/icon_progress_go"/>
+    <!--app:srcCompat="@drawable/file"-->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="-48dp"
+        android:layout_marginStart="-48dp"
+        android:paddingLeft="48dp"
+        android:paddingStart="48dp"
+        android:paddingEnd="0dp"
+        android:paddingRight="0dp"
+        android:background="?android:attr/selectableItemBackground">
+
+
+        <TextView android:id="@+id/playlist_title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:maxLines="1"
+            android:gravity="bottom"
+            android:textColor="@android:color/black"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:ellipsize="end"/>
+
+
+        <TextView android:id="@+id/playlist_url"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:ellipsize="end"/>
+
+    </LinearLayout>
+
+</LinearLayout>

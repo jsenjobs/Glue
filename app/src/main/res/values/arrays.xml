@@ -6,4 +6,12 @@
         <item>Copy link</item>
         <item>Share</item>
     </string-array>
+
+    <!-- def Holder -->
+    <string-array name="popup_resource">
+        <item>尝试播放</item>
+        <item>离线缓存</item>
+        <item>加入播放列表</item>
+        <item>复制地址</item>
+    </string-array>
 </resources>

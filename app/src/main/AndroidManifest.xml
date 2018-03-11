@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <!-- 添加快捷方式 -->
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <!-- 移除快捷方式 -->
@@ -26,6 +28,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+        <!-- Don't forgot InitActivity -->
+        <activity
+            android:name="io.vov.vitamio.activity.InitActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
 
         <!-- Holder -->
         <activity android:name=".activity.set.DefActivity"
@@ -50,9 +62,9 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:launchMode="singleInstance"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:configChanges="orientation|keyboardHidden|screenSize|fontScale"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:hardwareAccelerated="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,6 +89,20 @@
             android:name=".activity.SimpleContainer"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.download.ActivityDownload"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".activity.media.VideoPlay"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.FullScreen">
+        </activity>
+        <activity android:name=".activity.media.AudioPlay"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen">
         </activity>
     </application>
 
