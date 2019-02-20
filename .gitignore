@@ -1,5 +1,7 @@
 *.iml
 .gradle
+.idea
+/vitamio/build
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
