@@ -1,18 +1,13 @@
 package app.chaosstudio.com.glue
 
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.content.res.Configuration
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.*
 import android.preference.PreferenceManager
-import android.provider.Settings
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.*
-import android.webkit.URLUtil
 import android.webkit.WebChromeClient
 import android.webkit.WebIconDatabase
 import android.webkit.WebView
@@ -27,10 +22,7 @@ import app.chaosstudio.com.glue.greendb.model.BlackUrl
 import app.chaosstudio.com.glue.ui.*
 import app.chaosstudio.com.glue.unit.BrowserUnit
 import app.chaosstudio.com.glue.unit.js_native.MixUnit
-import app.chaosstudio.com.glue.utils.CustomTheme
-import app.chaosstudio.com.glue.utils.DensityUtil
-import app.chaosstudio.com.glue.utils.PermissionHelp
-import app.chaosstudio.com.glue.utils.QRUtil
+import app.chaosstudio.com.glue.utils.*
 import app.chaosstudio.com.glue.webconfig.FullscreenHolder
 import app.chaosstudio.com.glue.webconfig.WebViewManager
 
@@ -103,6 +95,8 @@ class MainActivity : AppCompatActivity() {
         MainActivity.instance = this
 
         App.instances.daoSession.pageSourceDao.deleteAll()
+
+        AndroidBug5497Workaround.assistActivity(this)
 
     }
 

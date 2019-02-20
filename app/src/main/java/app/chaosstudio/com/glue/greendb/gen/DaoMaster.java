@@ -28,11 +28,11 @@ public class DaoMaster extends AbstractDaoMaster {
         JsDomainDao.createTable(db, ifNotExists);
         LogModeDao.createTable(db, ifNotExists);
         OpendedUrlDao.createTable(db, ifNotExists);
+        PageSourceDao.createTable(db, ifNotExists);
         PlayListDao.createTable(db, ifNotExists);
         PluginDao.createTable(db, ifNotExists);
         RecordDao.createTable(db, ifNotExists);
         WhiteDomainDao.createTable(db, ifNotExists);
-        PageSourceDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
@@ -44,11 +44,11 @@ public class DaoMaster extends AbstractDaoMaster {
         JsDomainDao.dropTable(db, ifExists);
         LogModeDao.dropTable(db, ifExists);
         OpendedUrlDao.dropTable(db, ifExists);
+        PageSourceDao.dropTable(db, ifExists);
         PlayListDao.dropTable(db, ifExists);
         PluginDao.dropTable(db, ifExists);
         RecordDao.dropTable(db, ifExists);
         WhiteDomainDao.dropTable(db, ifExists);
-        PageSourceDao.dropTable(db, ifExists);
     }
 
     /**
@@ -74,11 +74,11 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(JsDomainDao.class);
         registerDaoClass(LogModeDao.class);
         registerDaoClass(OpendedUrlDao.class);
+        registerDaoClass(PageSourceDao.class);
         registerDaoClass(PlayListDao.class);
         registerDaoClass(PluginDao.class);
         registerDaoClass(RecordDao.class);
         registerDaoClass(WhiteDomainDao.class);
-        registerDaoClass(PageSourceDao.class);
     }
 
     public DaoSession newSession() {
